@@ -12,7 +12,7 @@ struct Nasa: Decodable {
     let date: String?
     let explanation: String?
     let hdurl: String?
-   
+    let url: String?
 }
 
 

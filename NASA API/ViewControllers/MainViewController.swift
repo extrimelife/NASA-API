@@ -14,13 +14,13 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
    
     
     //MARK: - Переопределенные методы
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
-        fetchImage()
         setupActivitiIndicator()
     }
     
@@ -40,12 +40,12 @@ final class MainViewController: UIViewController {
         NetworkManager.shared.fetchNasa(from: Link.nasaURL.rawValue) { nasa in
             self.explanationLabel.text = nasa.explanation
             self.dateLabel.text = nasa.date
-            
+            self.fetchImage(url: nasa.url)
         }
     }
     
-    private func fetchImage() {
-        NetworkManager.shared.fetchImage(from: Link.imageUrl.rawValue) { imageUrl in
+    private func fetchImage(url: String?) {
+        NetworkManager.shared.fetchImage(from: url ?? "") { imageUrl in
             self.imageView.image = UIImage(data: imageUrl)
             self.activityIndicator.stopAnimating()
         }

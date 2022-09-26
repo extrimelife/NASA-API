@@ -7,14 +7,6 @@
 
 import Foundation
 
-enum Link: String {
-    case nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YigFXbdhor1XgRdVXZmOolHFEpXsrWSCqh0UpF6G"
-    case imageUrl =
-            "https://apod.nasa.gov/apod/image/2209/HorseheadIr_HubbleNachman_960.jpg"
-    
-}
-
-
 class NetworkManager {
     static let shared = NetworkManager()
     
@@ -64,3 +56,7 @@ class NetworkManager {
     }
 }
 
+enum Link: String {
+    case nasaURL = "https://api.nasa.gov/planetary/apod?api_key=YigFXbdhor1XgRdVXZmOolHFEpXsrWSCqh0UpF6G"
+           
+}
